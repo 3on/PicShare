@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>PicShare</title>
+  <script type='text/javascript' src='/js/underscore-min.js'></script>
+  <script type='text/javascript' src='/js/jquery-1.7.2.min.js'></script>
+ 
+  <script type="text/javascript" src="http://api.jslib.dotcloud.com/dev/js/LIBBlRpyMLQTIKakD1aDWilqllOTD3OnzJBktTppemnw63Ih1bA2Wgt8liWLWbonK1nLIIKjZpgYD0cl9PBZgTISb0SmM4KF5hM9hltquktkUbi3ewyZydiCXHhApL2pshs7qs5tRTQbRPNjAbaepxY7MGmcjGwiWlmgsyfkxFC2z3hsNgJURM3i52up0wPbdvnHsNZz6LSAenIZWvilDQfni8j0WmO6JOChn2QR0o1shPVb6HLjUDOVD1oHIUqs"></script>
+
+  <script type="text/javascript" src="/js/main.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/animations.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+<body>
+  <script type="text/template" id="tmpl-thumb-img">
+    <div class="pic">
+      <span class="delete">x</span>
+      <img src="<%=urlData%>" class="thumb" alt="@" />
+    </div>
+  </script>
+
+  <script type="text/template" id="tmpl-thumb-canvas">
+    <canvas width="160" height="160" class="thumb"></canvas>
+  </script>
+
+  <script type="text/template" id="tmpl-slideshow-canvas">
+    <canvas width="160" height="160" class="thumb"></canvas>
+  </script>
+
+  <script type="text/template" id="tmpl-slideshow-image">
+    <img src="<%=urlData%>" class="big" alt="@" />
+  </script>
+
+
+  <div id="content">
+    
+    <div id="thumbnails">
+      <ul>
+        <li class="add"></li>
+      </ul>
+    </div>
+
+    <div id="slideshow">
+      <span class="previous">&lt;</span>
+      <span class="next">&gt;</span>
+      <div id="picture"></div>
+    </div>
+
+</div>
+  
+</body>
+</html>
+

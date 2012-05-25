@@ -1,0 +1,36 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+}
+
+#content {
+	height: 100%;
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+
+#thumbnails {
+	position: absolute;
+	height: 100%;
+	width: 312px;
+	left: 0px;
+	top: 0px;
+
+	border: 1px solid blue;
+	box-sizing: border-box;
+}
+
+#slideshow {
+	height: 100%;
+	border: 1px solid green;
+	margin-left: 312px;
+}
+
