@@ -13,7 +13,7 @@ body {
 
 #content {
 	height: 100%;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	box-sizing: border-box;
 }
 
@@ -32,5 +32,38 @@ body {
 	height: 100%;
 	border: 1px solid green;
 	margin-left: 312px;
+	position: relative;
 }
 
+#slideshow .previous, #slideshow .next {
+	position: absolute;
+	width: 60px;
+	height: 100%;
+
+	font-size: 40px;
+	text-align: center;
+	
+	cursor: pointer;
+
+	display: table;
+	vertical-align: middle;
+}
+
+#slideshow .previous:hover, #slideshow .next:hover {
+	background-color: rgba(255,255,255, 0.1);
+}
+
+#slideshow .previous {
+	left: 0px;
+}
+#slideshow .next {
+	right: 0px;
+}
+
+#slideshow .previous span, #slideshow .next span {
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+	content: "<";
+}
