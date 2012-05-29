@@ -12,9 +12,11 @@ body {
 }
 
 #content {
+	padding: 0px;
+	margin: 0px;
 	height: 100%;
 	/*border: 1px solid red;*/
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 }
 
 /*
@@ -27,7 +29,7 @@ body {
 	width: 312px;
 	left: 0px;
 	top: 0px;
-	box-sizing: border-box;
+	padding: 2px;
 }
 
 #thumbnails > ul {
@@ -44,6 +46,26 @@ body {
 	background-color: rgba(255,255,255, 0.2);
 }
 
+#thumbnails > ul li.add {
+	width: 308px;
+	height: 50px;
+	background-color: transparent;
+	border: 3px dashed rgba(255,255,255, 0.4);
+	border-radius: 4px;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+#thumbnails > ul li.add:before {
+	content: 'Add a picture';
+	color: rgba(255,255,255, 0.4);
+	line-height: 42px;
+	text-align: center;
+	width: 100%;
+	font-size: 28px;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}		
 
 /*
 				SLIDESHOW
@@ -51,22 +73,28 @@ body {
 
 #slideshow {
 	height: 100%;
-	margin-left: 314px;
+	padding: 0px;
+	margin: 0px;
+	margin-left: 316px;
 	position: relative;
+	text-align:center;
+	/*border: 1px solid red;*/
 }
 
 #slideshow .previous, #slideshow .next {
 	position: absolute;
+	top: 0px;
 	width: 60px;
 	height: 100%;
 
-	font-size: 40px;
+	font-size: 50px;
 	text-align: center;
 	
 	cursor: pointer;
 
 	display: table;
 	vertical-align: middle;
+
 }
 
 #slideshow .previous:hover, #slideshow .next:hover {
@@ -86,4 +114,21 @@ body {
 	vertical-align: middle;
 	display: table-cell;
 	content: "<";
+}
+
+#picture {
+	background-color: rgba(255,255,255, 0.3);
+	min-height: 200px;
+	width: 300px;
+	margin: auto;
+	display: inline-block;
+	vertical-align: center;
+}
+
+#slideshow:before {
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: red;
+	content: "";
 }
