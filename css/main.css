@@ -48,7 +48,7 @@ body {
 
 #thumbnails > ul li.add {
 	width: 308px;
-	height: 50px;
+	height: 100px;
 	background-color: transparent;
 	border: 3px dashed rgba(255,255,255, 0.4);
 	border-radius: 4px;
@@ -58,7 +58,7 @@ body {
 #thumbnails > ul li.add:before {
 	content: 'Add a picture';
 	color: rgba(255,255,255, 0.4);
-	line-height: 42px;
+	line-height: 96px;
 	text-align: center;
 	width: 100%;
 	font-size: 28px;
@@ -67,10 +67,10 @@ body {
 	padding: 0px;
 }		
 
+
 /*
 				SLIDESHOW
 */
-
 #slideshow {
 	height: 100%;
 	padding: 0px;
@@ -78,8 +78,15 @@ body {
 	margin-left: 316px;
 	position: relative;
 	text-align:center;
-	/*border: 1px solid red;*/
 }
+#slideshow:before {
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: red;
+	content: "";
+}
+
 
 #slideshow .previous, #slideshow .next {
 	position: absolute;
@@ -122,13 +129,5 @@ body {
 	width: 300px;
 	margin: auto;
 	display: inline-block;
-	vertical-align: center;
-}
-
-#slideshow:before {
-	height: 100%;
-	display: inline-block;
 	vertical-align: middle;
-	background-color: red;
-	content: "";
 }
