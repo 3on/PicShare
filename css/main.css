@@ -55,16 +55,20 @@ body {
 	margin-top: 20px;
 	box-sizing: border-box;
 }
-#thumbnails > ul li.add:before {
-	content: 'Add a picture';
+#thumbnails > ul li.add {
 	color: rgba(255,255,255, 0.4);
-	line-height: 96px;
+	line-height: 100px;
 	text-align: center;
 	width: 100%;
 	font-size: 28px;
 	display: block;
 	margin: 0px;
 	padding: 0px;
+}
+
+#thumbnails > ul li.add:before {
+	content: 'Add a picture';
+	display: none;
 }		
 
 
