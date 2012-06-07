@@ -17,14 +17,10 @@
 </head>
 <body>
   <script type="text/template" id="tmpl-thumb-img">
-    <div class="pic">
-      <span class="delete">x</span>
-      <img src="<%=urlData%>" class="thumb" alt="@" />
-    </div>
-  </script>
-
-  <script type="text/template" id="tmpl-thumb-canvas">
-    <canvas width="160" height="160" class="thumb"></canvas>
+    <li data-id="<%=id%>">
+        <div class="delete">X</div>
+        <img src="<%=urlData%>" class="thumb" alt="@" />
+    </li>
   </script>
 
   <script type="text/template" id="tmpl-slideshow-canvas">
@@ -32,20 +28,14 @@
   </script>
 
   <script type="text/template" id="tmpl-slideshow-image">
-    <img src="<%=urlData%>" class="big" alt="@" />
+    <img src="<%=urlData%>" class="big" data-id="<%=_id%>" alt="@" />
   </script>
 
 
   <div id="content">
     
     <div id="thumbnails">
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li class="add"><progress></progress></li>
-      </ul>
+      <ul></ul>
     </div>
 
     <div id="slideshow">

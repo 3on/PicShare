@@ -17,6 +17,19 @@ body {
 	height: 100%;
 	/*border: 1px solid red;*/
 	/*box-sizing: border-box;*/
+	overflow: hidden;
+}
+
+#content:after {
+	content: "Drop pictures in the page";
+	font-style: italic;
+	font-size: 20px;
+	position: absolute;
+	bottom: 20px;
+	line-height: 20px;
+	left: 0px;
+	right: 0px;
+	text-align: center;
 }
 
 /*
@@ -44,6 +57,35 @@ body {
 	margin: 2px;
 	float: left;
 	background-color: rgba(255,255,255, 0.2);
+	position: relative;
+}
+
+#thumbnails li .delete{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 0px;
+	padding: 0px;
+
+	width: 18px;
+	height: 18px;
+
+	background-color: rgba(1,1,1, 0.1);
+	line-height: 16px;
+	text-align: center;
+	font-size: 12px;
+	border-radius: 50%;
+	border: 2px solid rgba(255,255,255, 0.2);
+	color: rgba(255,255,255, 0.5);
+
+	cursor: pointer;
+	font-weight: bold;
+	font-family: "Comic Sans MS", sans-serif;
+}
+#thumbnails li:hover .delete {
+	background-color: rgba(1,1,1, 0.7);
+	border: 2px solid white;
+	color: white;
 }
 
 #thumbnails > ul li.add {
@@ -64,12 +106,14 @@ body {
 	display: block;
 	margin: 0px;
 	padding: 0px;
+	margin-top: 10px;
 }
 
 #thumbnails > ul li.add:before {
-	content: 'Add a picture';
-	display: none;
-}		
+	content: 'Drop a picture';
+	
+}
+
 
 
 /*
@@ -81,12 +125,13 @@ body {
 	margin: 0px;
 	margin-left: 316px;
 	position: relative;
-	text-align:center;
+	text-align: center;
 }
 #slideshow:before {
 	height: 100%;
 	display: inline-block;
 	vertical-align: middle;
+	text-align: center;
 	background-color: red;
 	content: "";
 }
@@ -130,8 +175,13 @@ body {
 #picture {
 	background-color: rgba(255,255,255, 0.3);
 	min-height: 200px;
-	width: 300px;
+
 	margin: auto;
 	display: inline-block;
 	vertical-align: middle;
+
+	max-width: 99%;
+	max-height: 99%;
+	overflow: hidden;
 }
+

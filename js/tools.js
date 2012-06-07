@@ -15,7 +15,7 @@ function templating (tmpl, data, selector) {
 	$(selector).append(template);
 }
 
-function squaredSized(width, height) {
+function squared(width, height) {
   var w = 0, h = 0;
 
   if(width <= height) {
@@ -26,5 +26,5 @@ function squaredSized(width, height) {
     h = height;
   }
 
-  return {sWidth: w, sHeight: h, sx: 0, sy: 0};
+  return {sWidth: w, sHeight: h, sx: 0, sy: 0, rx: 0, ry: 0};
 }
