@@ -6,11 +6,13 @@ var thumbnails = null;
 */
 function picLoaded(id, img) {
 	return function() {
-		var crop = squared(img.width, img.height); // determine the croping coordonate
 
-		// create a thumbnail
+		// create a thumbnail using a temporary canvas element
 		var canvas = document.createElement("canvas");
 		canvas.width = canvas.height = thumbnailSize;
+
+		// determine the croping coordonates
+		var crop = squared(img.width, img.height);
 
 		var ctx = canvas.getContext('2d');
 		ctx.drawImage(img, crop.sx, crop.sy, crop.sWidth, crop.sHeight, 0, 0, thumbnailSize, thumbnailSize);
@@ -65,23 +67,56 @@ function picDrop (e) {
 function picDelete(e) {
 
 }
+/*
+	Looks for the previous and the next thumbnails ID in the sync array
+*/
+function prevNnext(id) {
+	var res = {previous: undefined, next: undefined };
+
+	for (var i = 0; i < thumbnails.length; i++) {
+		if(thumbnails.at(i).id != id) continue;
+
+		if(i > 0) res.previous = thumbnails.at(i - 1)._id;
+		if(i < thumbnails.length - 1) res.next = thumbnails.at(i + 1)._id;
+
+		break;
+	};
+
+	console.log("prev and next: ", res)
+	return res;
+}
 
 function picChange (e) {
 	var id = e.data.id;
-
+	console.log("picChange id: " + id)
 	dotcloud.db.find('pictures', id, function(data){
 		if (data.error) throw data.error;
 
-		//console.log(data.result)
-
 		// change the picture
-
+		console.log(data)
 		templating("#tmpl-slideshow-image", data.result, "#picture");
 
 		// update the arrows
-		var i = _.indexOf(thumbnails, id);
-		$("#slideshow .previous").on("click", {id: id}, picChange);
-		$("#slideshow .next").on("click", {id: id}, picChange);
+		var pn = prevNnext(id);
+		$("#slideshow .previous").unbind('click');
+
+		if(pn.next != undefined) {
+			$("#slideshow .previous").on("click", {id: pn.previous}, picChange);
+			$("#slideshow .previous").show();
+		}
+		else {
+			$("#slideshow .previous").hide();
+		}
+		
+
+		$("#slideshow .next").unbind('click');
+		if(pn.next != undefined) {
+			$("#slideshow .next").on("click", {id: pn.next}, picChange);
+			$("#slideshow .next").show();
+		}
+		else {
+			$("#slideshow .next").hide();
+		}
 	});
 }
 
@@ -89,7 +124,7 @@ function drawThumbnails() {
 	$("#thumbnails li").not('.add').remove();
 
 	thumbnails.forEach(function(t){
-		$("#thumbnails ul").prepend(_.template($("#tmpl-thumb-img").html(), t));
+		$("#thumbnails ul").append(_.template($("#tmpl-thumb-img").html(), t));
 	});
 
 	$("#thumbnails li").each(function(){
